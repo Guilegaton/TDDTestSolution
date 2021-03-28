@@ -1,4 +1,5 @@
-﻿using TDDTestSolution.Interfaces;
+﻿using System.Text;
+using TDDTestSolution.Interfaces;
 
 namespace TDDTestSolution.Services
 {
@@ -13,7 +14,25 @@ namespace TDDTestSolution.Services
 
         public string WordWrap(string text)
         {
-            return string.Empty;
+            var result = new StringBuilder();
+
+            var counter = 0;
+            foreach (var character in text ?? string.Empty)
+            {
+                if (character != ' ' && character != '\n')
+                {
+                    counter++;
+                }
+                result.Append(character);
+                
+                if(counter == CharacterCount)
+                {
+                    result.Append("\n");
+                    counter = 0;
+                }
+            }
+
+            return result.ToString();
         }
     }
 }
