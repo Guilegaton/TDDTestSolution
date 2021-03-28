@@ -13,7 +13,7 @@ namespace TDDTestSolution.Tests
         {
             // Arrange
             var service = new OddEvenService();
-            var value = 5;
+            uint value = 21;
             var expectedValue = "Odd";
 
             // Act
@@ -28,7 +28,7 @@ namespace TDDTestSolution.Tests
         {
             // Arrange
             var service = new OddEvenService();
-            var value = 10;
+            uint value = 10;
             var expectedValue = "Even";
 
             // Act
@@ -43,7 +43,7 @@ namespace TDDTestSolution.Tests
         {
             // Arrange
             var service = new OddEvenService();
-            var value = 10;
+            uint value = 5;
             var expectedValue = "Prime";
 
             // Act
@@ -58,11 +58,12 @@ namespace TDDTestSolution.Tests
         {
             // Arrange
             var service = new OddEvenService();
-            var value = 10;
-            var expectedValue = "1 - Prime\r\n2 - Prime\r\n3 - Prime\r\n4 - Even\r\n5 - Prime\r\n6 - Even\r\n7 - Prime\r\n8 - Even\r\n9 - Odd\r\n10 - Even";
+            uint start = 1;
+            uint end = 10;
+            var expectedValue = "1 - Odd\r\n2 - Prime\r\n3 - Prime\r\n4 - Even\r\n5 - Prime\r\n6 - Even\r\n7 - Prime\r\n8 - Even\r\n9 - Odd\r\n10 - Even\r\n";
 
             // Act
-            var result = service.CheckRange(value);
+            var result = service.CheckRange(start, end);
 
             // Assert
             Assert.AreEqual(expectedValue, result);

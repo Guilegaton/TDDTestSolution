@@ -13,17 +13,14 @@ namespace TDDTestSolution.Tests
         {
             // Arrange
             var service = new LCDDigitsService();
-            uint value = 15;
-            var expectedValue =
-@"... ._.
-..| | _.
-..| ._ |";
+            uint value = 1234567890;
+            var expectedValue = "... ._. ._. ... ._. ._. ._. ._. ._. ._. \r\n..| ._| ._| |_| |_. |_. ..| |_| |_| |.| \r\n..| |_. ._| ..| ._| |_| ..| |_| ..| |_| \r\n";
 
             // Act
             var result = service.Convert(value);
 
             // Assert
-            Assert.AreEqual(expectedValue, result);
+            Assert.IsTrue(expectedValue == result);
         }
     }
 }
