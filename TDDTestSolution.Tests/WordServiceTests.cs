@@ -38,13 +38,29 @@ namespace TDDTestSolution.Tests
         }
 
         [Test]
-        public void WordWrap_InputeTextShorterThenCharacterCount_EmptyString()
+        public void WordWrap_InputeTextShorterThenCharacterCount_NoWrappedString()
         {
             // Arrange
             var characterCount = 10;
             var service = new WordWrapService(characterCount);
             string value = "test value";
             var expectedResult = "test value";
+
+            // Act
+            var result = service.WordWrap(value);
+
+            // Assert
+            Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
+        public void WordWrap_InputeTextWithNewLineAfterNewLine_WrappedStringWithoutAdditionalNewLineAfterNewLine()
+        {
+            // Arrange
+            var characterCount = 5;
+            var service = new WordWrapService(characterCount);
+            string value = "The quick brown fox jumps over\nthe lazy dog";
+            var expectedResult = "The qu\nick br\nown fo\nx jump\ns over\nthe la\nzy dog\n";
 
             // Act
             var result = service.WordWrap(value);
