@@ -91,6 +91,11 @@ namespace TDDTestSolution.Services
             }
         };
 
+        /// <summary>
+        /// Convert number to LCD digits
+        /// </summary>
+        /// <param name="value">Number</param>
+        /// <returns>String with LCD digits</returns>
         public string Convert(uint value)
         {
             var digits = GetIntArray(value);
@@ -108,6 +113,11 @@ namespace TDDTestSolution.Services
             return result.ToString();
         }
 
+        /// <summary>
+        /// Split complex number to separate digits
+        /// </summary>
+        /// <param name="num">Complex number</param>
+        /// <returns>Array of simple digits</returns>
         private uint[] GetIntArray(uint num)
         {
             var listOfInts = new List<uint>();

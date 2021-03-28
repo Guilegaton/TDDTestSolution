@@ -7,11 +7,20 @@ namespace TDDTestSolution.Services
     {
         public int CharacterCount { get; private set; }
 
+        /// <summary>
+        /// Create new instance of WordWrapService with specified number for wrapping
+        /// </summary>
+        /// <param name="characterCount">Number of characters (except whitespace " " and new line "\n" characters) for wrapping</param>
         public WordWrapService(int characterCount)
         {
             CharacterCount = characterCount;
         }
 
+        /// <summary>
+        /// Wrap string
+        /// </summary>
+        /// <param name="text">String for wrapping</param>
+        /// <returns>Wrapped string</returns>
         public string WordWrap(string text)
         {
             var result = new StringBuilder();

@@ -10,6 +10,11 @@ namespace TDDTestSolution.Services
         private const string EVEN_TEXT = "Even";
         private const string ODD_TEXT = "Odd";
 
+        /// <summary>
+        /// Check three points for number: is number even? is number odd? is number prime?
+        /// </summary>
+        /// <param name="number">Number</param>
+        /// <returns>Information about number</returns>
         public string CheckNumber(uint number)
         {
             var result = string.Empty;
@@ -29,6 +34,12 @@ namespace TDDTestSolution.Services
             return result;
         }
 
+        /// <summary>
+        /// Check three point for numbers in range: is number even? is number odd? is number prime?
+        /// </summary>
+        /// <param name="start">Start range position</param>
+        /// <param name="end">End range position</param>
+        /// <returns>Information about each number in range</returns>
         public string CheckRange(uint start, uint end)
         {
             var result = new StringBuilder(); 
@@ -40,6 +51,11 @@ namespace TDDTestSolution.Services
             return result.ToString();
         }
 
+        /// <summary>
+        /// Check if number is prime
+        /// </summary>
+        /// <param name="number">Number</param>
+        /// <returns>Prime state for number</returns>
         private bool IsPrime(uint number)
         {
             if (number <= 1) return false;
@@ -55,6 +71,11 @@ namespace TDDTestSolution.Services
             return true;
         }
 
+        /// <summary>
+        /// Check if number is even
+        /// </summary>
+        /// <param name="number">Number</param>
+        /// <returns>Even state for number</returns>
         private bool IsEven(uint number)
         {
             return number % 2 == 0;
