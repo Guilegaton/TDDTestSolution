@@ -26,12 +26,19 @@ namespace TDDTestSolution.Services
             var result = new StringBuilder();
 
             var counter = 0;
-            foreach (var character in text ?? string.Empty)
+            var usableText = text ?? string.Empty;
+            for (int i = 0; i < usableText.Length; i++)
             {
+                var character = usableText[i];
                 if (character != ' ' && character != '\n')
                 {
                     counter++;
                 }
+                else if (character == '\n' && counter == 0)
+                {
+                    continue;
+                }
+
                 result.Append(character);
                 
                 if(counter == CharacterCount)
